@@ -1,0 +1,37 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.header-container {
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+#view-high-scores {
+  color: blueviolet;
+  font-size: 12px;
+}
+
+#time {
+  color: black;
+  font-size: 14px;
+  justify-content: right;
+}
+
+.quiz-challenge {
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#start-quiz-button {
+  background-color: navy;
+  color: #fff;
+}
+
+#quiz-container {
+  display: none;
+}
