@@ -5,7 +5,10 @@ var startEl = document.querySelector("#start-container");
 var quizEl = document.querySelector("#quiz-container");
 var timerEl = document.querySelector("#timer");
 var answersArr = document.querySelectorAll(".answer-button");
+var scoreEl = document.querySelector("#score");
+var submitForm = document.querySelector("#submit-form");
 // globar variables
+var allDoneContainer = document.querySelector("#all-done-container");
 var timerInterval;
 var score = 0;
 var timeLeft = 60;
@@ -66,7 +69,7 @@ function startTimer() {
 
 function nextQuestion(event) {
   var selectedAnswer = event.target.textContent;
-  if (currentQuestion > questionEl.length) {
+  if (currentQuestion > questionEl.length - 1) {
     endQuiz();
     return;
   }
@@ -105,6 +108,8 @@ function changeQuestions() {
 }
 
 function endQuiz() {
+  allDoneContainer.style.display = "block";
+  scoreEl.textContent = "Your final score is:" + " " + timeLeft;
   // triggered either when timeLeft becomes 0 or when the user finishes all questions
   // var initials = prompt("Please enter your initials:");
   // prompts the user for initials, displays the score
@@ -114,7 +119,10 @@ function endQuiz() {
   // quizEl = document.getElementById("#quiz-container");
   quizEl.innerHTML = " ";
   clearInterval(timerInterval);
-  submitInitials();
+  submitForm.addEventListener("submit", submitInitials);
+
+  // submitInitials();
+
   // if the user finishes before timer runs out, stop the timer from running
 }
 
@@ -124,16 +132,22 @@ function endQuiz() {
 // > overwrite the scores with the new array
 // take the user to the highScore.html page
 // triggered when the user submitted their initials
-function submitInitials() {
-  submitInitials.addEventListener("");
-  var initialsInput = document.getElementById("initials-input");
-  var initials = initialsInput.value;
-  var score = JSON.parse(localStorage.getItem("scores")) || [];
-  score.push({ initials: initials, score: score });
-  localStorage.setItem("scores", JSON.stringlify(scores));
+function submitInitials(event) {
+  event.preventDefault();
+  // submitInitials.addEventListener("click");
+  var initialsInput = document.getElementById("submit-input");
+  initialsInput.value;
+  // var initials = initialsInput.value;
+  // if (JSON.parse(localStorage.getItem("scores"))) {
+  //   var score = JSON.parse(localStorage.getItem("scores"));
+  // } else {
+  //   var score = [];
+  //   score.push({ initials: initials, score: score });
+  // }
+  localStorage.setItem("initials", initialsInput.value);
+  localStorage.setItem("score", timeLeft);
+  // localStorage.setItem("scores", JSON.stringlify(scores));
   window.location.href = "highScore.html";
-  var submitBtn = document.getElementById("submit-button");
-  submitButton.addEventListener("click", submitInitials);
 }
 
 // event listener to trigger start function
