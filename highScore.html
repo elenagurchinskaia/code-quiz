@@ -3,25 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="=stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>mini quiz</title>
   </head>
 
   <body>
-    <header>
-      <div class="header-container">
-        <div id="view-high-scores"></div>
-        <h3>View High Scores</h3>
-        <div id="time"></div>
-        <h3>Time:</h3>
-      </div>
-    </header>
+    <div class="header">
+      <div id="view-high-scores">View High Scores</div>
+      <div id="timer">Time: 0</div>
+    </div>
 
-    <div id="quiz-container">
-      <h1>All done!</h1>
-      <div id="score"></div>
-      <div id="enter-initials"></div>
-      <button id="submit-button">Submit</button>
+    <div id="quiz-box">
+      <h2>High Scores</h2>
+      <div id="score-box"></div>
+      <div id="initials-input"></div>
+      <button id="go-back-button">Go back</button>
+      <button id="clear-button">Clear high scores</button>
     </div>
 
     <script src="./assets/js/script.js"></script>

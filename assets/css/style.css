@@ -6,32 +6,142 @@ body {
   margin: 0;
 }
 
-.header-container {
+.header {
+  display: flex;
   justify-content: space-between;
-  padding-top: 20px;
+  margin: 2%;
 }
 
-#view-high-scores {
+#view-high-scores-button {
   color: blueviolet;
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: bolder;
 }
 
-#time {
+#timer {
   color: black;
-  font-size: 14px;
-  justify-content: right;
+  font-size: 15px;
 }
 
-.quiz-challenge {
+h1 {
+  display: flex;
   justify-content: center;
-  font-family: "Courier New", Courier, monospace;
+  font-size: 40px;
 }
 
-#start-quiz-button {
+h2 {
+  display: flex;
+  justify-content: left;
+  font-size: 30px;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 5%;
+  margin-top: 2%;
+  font-size: 20px;
+  text-align: center;
+}
+
+#start-quiz-button,
+#go-back-button {
   background-color: navy;
   color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  width: 150px;
+  margin-left: 45%;
+  margin-right: 45%;
+}
+
+#clear-button {
+  background-color: navy;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  width: 300px;
+  margin-left: 45%;
+  margin-right: 45%;
+}
+
+#start-quiz-button:hover,
+#go-back-button:hover,
+#clear-button:hover,
+.answer-button:hover {
+  background-color: blueviolet;
+}
+
+#quiz-box {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  margin-left: 20%;
+}
+
+#score-box {
+  background-color: grey;
+  width: 700px;
+  height: 30px;
+}
+
+#start-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #quiz-container {
   display: none;
+}
+
+#all-done-container {
+  display: none;
+}
+
+#question {
+  font-size: 30px;
+  font-weight: bold;
+  justify-content: left;
+  margin-left: 20%;
+}
+
+#answer-choices {
+  font-size: 17px;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.answer-button {
+  background-color: navy;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  width: 300px;
+  margin-left: 45%;
+  margin-right: 45%;
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
 }
