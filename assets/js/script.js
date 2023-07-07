@@ -7,8 +7,8 @@ var timerEl = document.querySelector("#timer");
 var answersArr = document.querySelectorAll(".answer-button");
 var scoreEl = document.querySelector("#score");
 var submitForm = document.querySelector("#submit-form");
-// globar variables
 var allDoneContainer = document.querySelector("#all-done-container");
+
 var timerInterval;
 var score = 0;
 var timeLeft = 60;
@@ -35,14 +35,12 @@ var answersChoices = [
 var correctAnswer = ["1", "0", "2", "1", "3", "0", "1"];
 var currentQuestion = 0;
 
-// All of our selectors (document.)
-// triggered when they pressed button (event listener)
+// triggered when pressed button (event listener)
 // starts the timer
 // > set interval
 // > once timer hits 0, call endQuiz function
 // hide the start button
 // reveal the options, questions
-
 function startTimer() {
   console.log("quiz-started");
   timeLeft = 60;
@@ -62,24 +60,16 @@ function startTimer() {
 // triggered when the user selects any answer
 // guess what answer the user choose
 // guess if the answer is right or wrong
-// > if it's wrong, reduce the time by 10, then show message "Wrong!"
-// > if it's right, then show message "Correct!" (time left at the end is the user's score)
+// > if it's wrong, reduce the time by 10"
+// > if it's right (time left at the end is the user's score)
 // change the question
 // change the choices
-
 function nextQuestion(event) {
   var selectedAnswer = event.target.textContent;
   if (currentQuestion > questionEl.length - 1) {
     endQuiz();
     return;
   }
-  // var isCorrect = checkAnswer(selectedAnswer);
-  // if (isCorrect) {
-  //   displayMessage("Correct!");
-  // } else {
-  //   displayMessage("Wrong!");
-  //   reduceTime(10);
-  // }
   changeQuestions();
 }
 
@@ -107,25 +97,23 @@ function changeQuestions() {
   }
 }
 
+// triggered either when timeLeft becomes 0 or when the user finishes all questions
+// var initials = prompt("Please enter your initials:");
+// prompts the user for initials, displays the score
+// var score = timeLeft;
+// alert("Your score is:" + score);
+// hide the question
+// quizEl = document.getElementById("#quiz-container");
 function endQuiz() {
   allDoneContainer.style.display = "block";
   scoreEl.textContent = "Your final score is:" + " " + timeLeft;
-  // triggered either when timeLeft becomes 0 or when the user finishes all questions
-  // var initials = prompt("Please enter your initials:");
-  // prompts the user for initials, displays the score
-  // var score = timeLeft;
-  // alert("Your score is:" + score);
-  // hide the question
-  // quizEl = document.getElementById("#quiz-container");
   quizEl.innerHTML = " ";
   clearInterval(timerInterval);
   submitForm.addEventListener("submit", submitInitials);
-
-  // submitInitials();
-
-  // if the user finishes before timer runs out, stop the timer from running
 }
 
+// submitInitials();
+// if the user finishes before timer runs out, stop the timer from running
 // save scores and initials to the local storage
 // > save the existing score to the variable
 // > add the new scores to the end of the new array
@@ -134,19 +122,10 @@ function endQuiz() {
 // triggered when the user submitted their initials
 function submitInitials(event) {
   event.preventDefault();
-  // submitInitials.addEventListener("click");
   var initialsInput = document.getElementById("submit-input");
   initialsInput.value;
-  // var initials = initialsInput.value;
-  // if (JSON.parse(localStorage.getItem("scores"))) {
-  //   var score = JSON.parse(localStorage.getItem("scores"));
-  // } else {
-  //   var score = [];
-  //   score.push({ initials: initials, score: score });
-  // }
   localStorage.setItem("initials", initialsInput.value);
   localStorage.setItem("score", timeLeft);
-  // localStorage.setItem("scores", JSON.stringlify(scores));
   window.location.href = "highScore.html";
 }
 
@@ -163,7 +142,6 @@ startBtn.addEventListener("click", function () {
 for (var i = 0; i < answersArr.length; i++) {
   answersArr[i].addEventListener("click", nextQuestion);
 }
-
 answersArr.forEach(function (answersChoices) {
   answersChoices.addEventListener("click", function (event) {
     var selectedAnswer = event.target.textContent;
